@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#741f32">
+<title>শুভ পরিণয় | Our Wedding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@400;500;600;700&family=Poppins:wght@300;400;500&family=Tiro+Bangla&display=swap" rel="stylesheet">
+<style>
+:root{
+ --cream:#fff9f0;--wine:#781f34;--wine2:#4a1725;--gold:#c69a58;
+ --ink:#49352e;--rose:#d9a5a5;--soft:#f2e5d8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:Poppins,sans-serif;overflow-x:hidden}
+h1,h2,h3,h4{font-family:"Playfair Display",serif;font-weight:500}
+.bn{font-family:"Tiro Bangla",serif}
+nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:17px 6%;background:#fff9f0e8;backdrop-filter:blur(12px);border-bottom:1px solid #c69a582c}
+.logo{font:24px "Tiro Bangla",serif;color:var(--wine)}
+.navlinks{display:flex;gap:24px}
+nav a{font-size:10px;letter-spacing:1.5px;color:var(--ink);text-decoration:none}
+nav a:hover{color:var(--wine)}
+
+.hero {
+  min-height: 100svh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--wine);
+  padding: 120px 20px 75px;
+
+  background:
+    linear-gradient(
+      rgba(255, 250, 242, 0.78),
+      rgba(255, 250, 242, 0.78)
+    ),
+    url("images/bg_pic.jpg") center center / cover no-repeat;
+
+  background-color: var(--cream);
+}
+.hero h1{text-shadow:0 2px 12px #fff9f0;}
+.hero:after{content:"";position:absolute;inset:15px;border:1px solid #e5c98d70;pointer-events:none}
+.hero-inner{position:relative;z-index:1;animation:heroIn 1.8s ease both}
+.kicker{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--wine)}
+.hero h1{font-size:clamp(48px,9vw,100px);line-height:1.06;text-shadow:0 4px 25px #0004}
+.amp{font:italic 42px "Playfair Display",serif;color:#f0d39a;margin:10px}
+.hero .subtitle{font-size:13px;line-height:2;margin:26px auto 0;max-width:500px}
+.hero-date{margin-top:30px;letter-spacing:3px;font-size:12px}
+.cta{display:inline-block;margin-top:30px;padding:13px 26px;border:1px solid #e2c18a;color:white;text-decoration:none;font-size:10px;letter-spacing:2px;transition:.3s}
+.cta:hover{background:#e2c18a;color:var(--wine)}
+section{padding:90px 7%;opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+section.show{opacity:1;transform:none}
+.heading{text-align:center;margin:0 auto 48px;max-width:680px}
+.heading .bn{color:var(--wine);font-size:20px}
+.heading h2{font-size:clamp(32px,5vw,54px);margin:8px 0 13px}
+.heading h4{font-size:12px;line-height:2;opacity:.72}
+.heading p{font-size:12px;line-height:2;opacity:.72}
+.story{background:var(--cream)}
+.story-grid{max-width:900px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:25px 45px}
+.story-item{padding:22px 24px;border-left:1px solid var(--gold)}
+.story-item .num{font-size:11px;letter-spacing:3px;color:var(--gold)}
+.story-item h3{font-size:24px;margin:12px 0}
+.story-item p{font-size:12px;line-height:2}
+.gallery{background:var(--soft)}
+.photos{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;grid-template-rows:260px 260px;gap:16px}
+.photos img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s,filter .7s;filter:saturate(.88)}
+.photos img:hover{transform:scale(1.025);filter:saturate(1.1)}
+.photos img:first-child{grid-row:span 2}
+.events{background:var(--cream)}
+.event-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.event{border:1px solid #d9c09a;text-align:center;padding:32px 18px;position:relative}
+.event .symbol{font-size:27px;color:var(--gold)}
+.event h3{font-size:24px;margin:16px 0}
+.event p{font-size:11px;line-height:2}
+.event a{display:inline-block;margin-top:18px;font-size:10px;letter-spacing:1px;color:var(--wine)}
+.countdown{background:var(--wine);color:#fff;text-align:center}
+.countdown .bn{color:#efd5a0}
+.countdown h2{font-size:clamp(30px,5vw,48px);margin:10px 0 35px}
+.timer{display:flex;justify-content:center;gap:38px;flex-wrap:wrap}
+.timer span{display:block;font:clamp(28px,5vw,44px) "Playfair Display",serif}
+.timer small{font-size:9px;letter-spacing:2px;text-transform:uppercase}
+.diary{background:var(--soft)}
+.diary-body{max-width:720px;margin:auto;text-align:center;font-size:13px;line-height:2.2}
+.diary-body ul{max-width:530px;text-align:left;margin:25px auto;padding-left:22px}
+.invitation{text-align:center;background:linear-gradient(#fff9f0e8,#fff9f0e8),url("images/couple-2.jpeg") center/cover}
+.invitation h2{color:var(--wine);font-size:clamp(34px,6vw,62px);margin:20px 0}
+.invitation p{max-width:620px;margin:auto;font-size:13px;line-height:2.2}
+footer{background:var(--wine2);color:#f7eadb;text-align:center;padding:42px 20px;line-height:2.3}
+footer h3{font-size:30px}
+footer .bn{color:#e7c78e}
+.music-btn{position:fixed;right:22px;bottom:22px;z-index:30;width:54px;height:54px;border-radius:50%;border:1px solid var(--gold);background:var(--wine);color:white;font-size:22px;cursor:pointer;box-shadow:0 5px 20px #0002}
+.music-btn.playing{animation:pulse 2s infinite}
+.music-label{position:fixed;right:85px;bottom:35px;z-index:30;background:#fff9f0ed;color:var(--wine);font-size:10px;letter-spacing:1px;padding:8px 12px;border-radius:20px}
+.petal{position:fixed;top:-30px;z-index:25;pointer-events:none;color:#c9828d;animation:fall linear forwards}
+.cover{position:fixed;inset:0;background:var(--wine2);color:var(--cream);z-index:50;display:grid;place-items:center;text-align:center;padding:25px;transition:opacity 1s,visibility 1s}
+.cover.hide{opacity:0;visibility:hidden}
+.cover .bn{color:#e9c98d;font-size:23px}
+.cover h2{font-size:clamp(35px,7vw,70px);margin:14px 0}
+.cover p{font-size:12px;line-height:2}
+.cover button{background:transparent;border:1px solid var(--gold);color:var(--cream);padding:14px 27px;margin-top:25px;letter-spacing:2px;font:11px Poppins;cursor:pointer}
+.cover button:hover{background:var(--gold);color:var(--wine2)}
+@keyframes heroIn{from{opacity:0;transform:translateY(25px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@keyframes fall{0%{transform:translateY(-5vh) rotate(0);opacity:0}12%{opacity:.8}90%{opacity:.6}100%{transform:translateY(110vh) rotate(700deg);opacity:0}}
+@keyframes pulse{50%{box-shadow:0 0 0 10px #c69a5800}0%,100%{box-shadow:0 0 0 0 #c69a5850}}
+@media(max-width:700px){
+ nav{padding:14px 5%}.navlinks{gap:12px}.navlinks a{font-size:8px;letter-spacing:.7px}.logo{font-size:19px}
+ section{padding:70px 6%}.story-grid{grid-template-columns:1fr;gap:8px}
+ .photos{grid-template-columns:1fr 1fr;grid-template-rows:210px 210px;gap:9px}.photos img:first-child{grid-row:span 2}
+ .event-grid{grid-template-columns:1fr}.timer{gap:20px}
+ .hero{background-position:53% center}
+}
+@media(max-width:420px){.navlinks a:nth-child(2){display:none}.photos{grid-template-rows:170px 170px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- Opening invitation: visitor click enables music (browser autoplay policy) -->
+<div class="cover" id="cover">
+  <div>
+    <div class="bn">শুভ বিবাহ</div>
+    <h2>You're invited</h2>
+    <p>A little love, a lifetime together.<br>Come join us as we begin our forever.</p>
+    <button id="openInvite">OPEN INVITATION ✦</button>
+  </div>
+</div>
+
+<nav>
+  <div class="logo">শুভ পরিণয়</div>
+  <div class="navlinks">
+    <a href="#story">OUR STORY</a>
+    <a href="#gallery">MOMENTS</a>
+    <a href="#events">THE WEDDING</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker bn">শুভ বিবাহ · আমাদের নতুন শুরু</div>
+    <h1 id="brideName">Your Name</h1>
+    <div class="amp">&</div>
+    <h1 id="groomName">Partner's Name</h1>
+    <p class="subtitle">Two hearts, two families, and a beautiful new chapter.<br><span class="bn">দুই হৃদয়, দুই পরিবার, এক নতুন পথচলা।</span></p>
+    <div class="hero-date" id="heroDate">5 DECEMBER · 2026</div>
+    <a href="#story" class="cta">COME CELEBRATE WITH US ↓</a>
+  </div>
+</header>
+
+<section class="story" id="story">
+  <div class="heading">
+    <div class="bn">আমাদের গল্প</div>
+    <h2>A little backstory</h2>
+    <p>Every love story has its own magic. Here's a little piece of ours.</p>
+  </div>
+  <div class="story-grid">
+    <article class="story-item"><span class="num">01 — THE BEGINNING</span><h3>The first hello</h3><p>Somewhere between an ordinary day and an unexpected conversation, our story quietly began.</p></article>
+    <article class="story-item"><span class="num">02 — THE LITTLE THINGS</span><h3>Finding our rhythm</h3><p>Shared jokes, long conversations, familiar silences — and the comfort of finding home in a person.</p></article>
+    <article class="story-item"><span class="num">03 — THE PROMISE</span><h3>A wholehearted yes</h3><p>One promise, two families, and a future we can't wait to build together.</p></article>
+    <article class="story-item"><span class="num">04 — THE NEXT CHAPTER</span><h3>And now… বিয়ে!</h3><p>With our favourite people around us, we're ready to turn this page and begin forever.</p></article>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="heading">
+    <div class="bn">আমাদের কিছু প্রিয় মুহূর্ত</div>
+    <h2>Us, in little moments</h2>
+    <p>A few memories we keep close to our hearts.</p>
+  </div>
+  <div class="photos">
+    <img src="images/couple-1.jpeg" alt="Our photo together, moment one">
+    <img src="images/couple-2.jpeg" alt="Our photo together, moment two">
+    <img src="images/couple-3.jpeg" alt="Our photo together, moment three">
+  </div>
+</section>
+
+<section class="events" id="events">
+  <div class="heading">
+    <div class="bn">বিয়ের অনুষ্ঠান</div>
+    <h2>The celebrations</h2>
+    <p>Good food, heartfelt adda, blessings and a whole lot of love.<br>We'd be delighted to celebrate with you.</p>
+  </div>
+  <div class="event-grid">
+    <div class="event"><div class="symbol">❀</div><h3>Gaye Holud</h3><p>Saturday, 5 December 2026<br>12:00 pm<br>KALYANI HOUSE, KOLKATA</p><a href="https://www.google.com/maps/place/Kalyani+House/@22.4729893,88.3063034,17z/data=!3m1!4b1!4m6!3m5!1s0x3a027a60c5282ea7:0x4be0c7b94586408c!8m2!3d22.4729893!4d88.3063034!16s%2Fg%2F11d_8gngj8?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">VIEW LOCATION ↗</a></div>
+    <div class="event"><div class="symbol">✦</div><h3>Shubho Bibaho</h3><p>Saturday, 5 December 2026<br>7:00 pm<br>KALYANI HOUSE, KOLKATA</p><a href="https://www.google.com/maps/place/Kalyani+House/@22.4729893,88.3063034,17z/data=!3m1!4b1!4m6!3m5!1s0x3a027a60c5282ea7:0x4be0c7b94586408c!8m2!3d22.4729893!4d88.3063034!16s%2Fg%2F11d_8gngj8?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">VIEW LOCATION ↗</a></div>
+    <div class="event"><div class="symbol">❋</div><h3>Reception</h3><p>Monday, 7 December 2026<br>7:00 pm<br>RAJA BHAVAN, KALNA</p><a href="https://www.google.com/maps/place/Mahishmardini+Tala/@23.2237131,88.3665693,17.89z/data=!4m10!1m2!2m1!1smohishmordini+tola+kalna!3m6!1s0x39f8e5ac1fa5f96d:0x9aa7386face7c59e!8m2!3d23.2252346!4d88.3686821!15sChhtb2hpc2htb3JkaW5pIHRvbGEga2FsbmFaGiIYbW9oaXNobW9yZGluaSB0b2xhIGthbG5hkgEMaGluZHVfdGVtcGxlmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDIxR2RWRXdhSFJoVXpGdVUydE9VRk5IWkd4T2VtdDBaRzFXUzFJell4QULgAQD6AQQIERAz!16s%2Fg%2F1tfcg55t?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">VIEW LOCATION ↗</a></div>
+  </div>
+</section>
+
+<section class="countdown">
+  <div class="bn">আর মাত্র কিছু দিন</div>
+  <h2 id="countTitle">Until we say “I do”</h2>
+  <div class="timer">
+    <div><span id="days">00</span><small>Days</small></div>
+    <div><span id="hours">00</span><small>Hours</small></div>
+    <div><span id="minutes">00</span><small>Minutes</small></div>
+    <div><span id="seconds">00</span><small>Seconds</small></div>
+  </div>
+</section>
+
+<section class="diary">
+  <div class="heading"><div class="bn">দুই পরিবারের পক্ষ থেকে</div><h2>A Family Invitation</h2></div>
+  <div class="diary-body">
+    <h4>With the blessings of the Almighty and our elders,</h4>
+    <h4><strong>Mr. Bibekananda Kapuri &amp; Mrs. Sharmila Kapuri</strong><br>cordially invite you to celebrate the wedding of their <strong>only daughter, Shaibalini Kapuri</strong></h4>
+    <h4>with</h4>
+    <h4><strong>Indranil Bhattacharyya</strong><br>son of <strong>Mr. Ratul Kumar Bhattacharyya &amp; Mrs. Shanta Bhattacharyya</strong></h4>
+    <h4>Your gracious presence and blessings will make this joyous occasion truly memorable.</h4>
+    <h4 class="bn">সস্নেহ আমন্ত্রণ ও আশীর্বাদ প্রার্থনায়<br>কাপুড়ি ও ভট্টাচার্য পরিবার</h4>
+  </div>
+</section>
+
+<section class="invitation">
+  <div class="bn">আপনাদের সাদর আমন্ত্রণ</div>
+  <h2>With love & blessings</h2>
+  <h4>With the blessings of our elders and hearts full of joy, we invite you to join us as we begin this beautiful new journey. Your presence will make our celebration truly special.</h4>
+  <h2 id="signature">Shaibalini Kapuri & Indranil Bhattacharyya</h2>
+  <div class="bn">সপরিবারে উপস্থিত থাকবেন · আপনাদের অপেক্ষায় রইলাম</div>
+</section>
+
+<footer>
+  <h3 id="footerNames">Shaibalini Kapuri & Indranil Bhattacharyya</h3>
+  <div class="bn">শুভ পরিণয়</div>
+  Made with love, memories & a little bit of magic.
+</footer>
+
+<audio id="weddingMusic" src="music.mp3" loop preload="auto"></audio>
+<button class="music-btn" id="musicButton" aria-label="Pause or play wedding music" title="Music">♫</button>
+<div class="music-label" id="musicLabel">Music is on · tap ♫ to pause</div>
+
+<script>
+// ===========================================
+// PERSONALIZE THESE DETAILS
+// ===========================================
+const brideName = "Shaibalini Kapuri";
+const groomName = "Indranil Bhattacharyya";
+
+// Local time: year, month (0=Jan ... 11=Dec), day, hour, minute
+const weddingDate = new Date(2026, 11, 5, 18, 0);
+
+// Displayed date — edit this line to match your wedding date
+const displayDate = "5 DECEMBER · 2026";
+
+// Names update automatically in all places
+document.getElementById("brideName").textContent = brideName;
+document.getElementById("groomName").textContent = groomName;
+document.getElementById("signature").textContent = brideName + " & " + groomName;
+document.getElementById("footerNames").textContent = brideName + " & " + groomName;
+document.getElementById("heroDate").textContent = displayDate;
+
+// Countdown
+function updateCountdown(){
+  const distance = weddingDate.getTime() - Date.now();
+  if(distance <= 0){
+    document.getElementById("countTitle").textContent = "And so our forever begins ♥";
+    ["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");
+    return;
+  }
+  document.getElementById("days").textContent = Math.floor(distance/86400000);
+  document.getElementById("hours").textContent = Math.floor(distance/3600000)%24;
+  document.getElementById("minutes").textContent = Math.floor(distance/60000)%60;
+  document.getElementById("seconds").textContent = Math.floor(distance/1000)%60;
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+// Music: starts after the visitor explicitly opens the invitation
+const music = document.getElementById("weddingMusic");
+const musicButton = document.getElementById("musicButton");
+const musicLabel = document.getElementById("musicLabel");
+const cover = document.getElementById("cover");
+music.volume = 0.15;
+
+document.getElementById("openInvite").addEventListener("click",async()=>{
+  cover.classList.add("hide");
+  try{
+    await music.play();
+    musicButton.classList.add("playing");
+    musicLabel.textContent="Music is on · tap ♫ to pause";
+  }catch(err){
+    musicLabel.textContent="Tap ♫ to play music";
+  }
+});
+
+musicButton.addEventListener("click",async()=>{
+  if(music.paused){
+    try{
+      await music.play();
+      musicButton.classList.add("playing");
+      musicLabel.textContent="Music is on · tap ♫ to pause";
+    }catch(err){
+      musicLabel.textContent="Couldn't play audio. Check music.mp3";
+    }
+  }else{
+    music.pause();
+    musicButton.classList.remove("playing");
+    musicLabel.textContent="Music paused · tap ♫ to play";
+  }
+});
+
+// Gentle falling petals
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(!reducedMotion){
+  const glyphs=["✿","❀","✾","❋"];
+  setInterval(()=>{
+    const petal=document.createElement("span");
+    petal.className="petal";
+    petal.textContent=glyphs[Math.floor(Math.random()*glyphs.length)];
+    petal.style.left=Math.random()*100+"vw";
+    petal.style.fontSize=(12+Math.random()*15)+"px";
+    petal.style.animationDuration=(7+Math.random()*7)+"s";
+    document.body.appendChild(petal);
+    setTimeout(()=>petal.remove(),14500);
+  },1100);
+}
+
+// Scroll reveal animation
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll("section").forEach(section=>observer.observe(section));
+</script>
+</body>
+</html>
